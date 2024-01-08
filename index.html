@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON/CSV File Processor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h2>Import Products</h2>
+</header>
+
+<main>
+    <div id="step1">
+        <h3>Step 1: Upload File</h3>
+        <input type="file" id="file-input" accept=".json, .csv">
+        <h4>Supported File Type(s): .CSV, .JSON</h4>
+    </div>
+
+    <div id="step2">
+        <h3>Step 2: Specify Format</h3>
+        <label for="file-type">File Type:</label>
+        <select id="file-type">
+            <option value="json">JSON</option>
+            <option value="csv">CSV</option>
+        </select>
+
+        <br>
+
+        <label for="character-encoding">Character Encoding:</label>
+        <select id="character-encoding">
+            <option value="utf-8">UTF-8</option>
+            <option value="iso-8859-1">ISO-8859-1</option>
+        </select>
+
+        <br>
+
+        <label for="delimiter">Delimiter:</label>
+        <select id="delimiter">
+            <option value=",">Comma (,)</option>
+            <option value=";">Semicolon (;)</option>
+            <option value="\t">Tab</option>
+        </select>
+
+        <br>
+
+        <label for="has-header">Has Header:</label>
+        <input type="checkbox" id="has-header">
+    </div>
+</main>
+
+<div id="step3">
+    <h3>Step 3:<h4> Display Setting: </h4></h3>
+    <div id="column-selection">
+        <div>
+            <p>Available Columns</p>
+            <select id="available-columns" size="15"></select>
+        </div>
+        <div>
+            <button onclick="selectColumn()">>></button><br>
+            <button onclick="removeColumn()"><<</button>
+        </div>
+        <div>
+            <p>Selected Columns</p>
+            <select id="selected-columns" size=15></select>
+        </div>
+    </div>
+
+    <button onclick="processFile()" class="next">Next</button>
+    <button class="Cancel">Cancel</button>
+
+    <div id="table-container"></div>
+</div>
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
